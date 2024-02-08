@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body { 
+    font-size: 10px;
+    height: 100vh;
+    color: white;
+    background: linear-gradient(130deg, #153677, #4e085f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 30rem;
+    padding: 1rem;
+}
+
+.to-do {
+    width: 100%;
+    color: black;
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+}
+
+.to-do h2 {
+    display: flex;
+    gap: .5rem;
+    font-size: 1.1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.box {
+    display: flex;
+    background: #edeef0;
+    border-radius: 4rem;
+    padding-left: 1rem;
+    height: 3rem;
+    font-size: 1.1rem;
+    justify-content: space-between;
+}
+
+.box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    background: transparent;
+}
+
+.box button {
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: 500;
+    text-align: center;
+    background: orange;
+    padding: .5rem 2rem;
+    border-radius: 4rem;
+}
+
+ul {
+    margin-top: 1rem;
+}
+.to-do ul li {
+    font-family: 'Poppins', sans-serif;
+    list-style-type: none;
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%; 
+    background: url('/Assets/unchecked.png');
+    background-size: cover;
+    background-position: center;
+    top: 20px;
+    left: 8px;
+}
+
+li.checked{
+    color: #555;
+    text-decoration: line-through;
+}
+
+li.checked::before {
+    background-image: url('/Assets/checked.png');
+}
+
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-align: center;
+    /* background: #edeef0; */
+    border-radius: 50%;
+}
+ul li span:hover {
+    background: #edeef0;
+}
