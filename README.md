@@ -34,7 +34,7 @@ To get it on your local system, enter the following commands in your terminal:
 
 ```bash
 # clone the repository
-git clone git@github.com:kuldeeepy/Task-Manager.git
+git clone https://github.com/kuldeeepy/Task-Manager.git
 
 # move into directory
 cd Task-Manager
