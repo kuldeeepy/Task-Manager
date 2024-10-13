@@ -1,6 +1,6 @@
 # Task Manager
 
-It's a very basic task-management web application and it's few of the features are inspired by github's project UI.
+It's a very basic task-management web application which allows user to maintain stack of their tasks as per the status and it's few of the features are inspired by github's project UI.
 
 ## Features
 
