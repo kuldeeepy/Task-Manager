@@ -1,124 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-* {
-    margin: 0;
+body, html {
     padding: 0;
-    font-family: serif;
-    font-family: 'Poppins', sans-serif;
+    margin: 0 auto;
     box-sizing: border-box;
 }
 
-body { 
-    font-size: 10px;
-    height: 100vh;
-    color: white;
-    background: linear-gradient(130deg, #153677, #4e085f);
+body .container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 0 25px;
+    height: 80vh;
+    gap: 15px;
+}
+
+.form {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 20%;
+    margin: 25px;
 }
 
-.container {
-    width: 100%;
-    max-width: 30rem;
-    padding: 1rem;
-}
-
-.to-do {
-    width: 100%;
-    color: black;
-    background: white;
-    padding: 3rem 2rem;
-    border-radius: 2rem;
-}
-
-.to-do h2 {
-    display: flex;
-    gap: .5rem;
-    font-size: 1.1rem;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.box {
-    display: flex;
-    background: #edeef0;
-    border-radius: 4rem;
-    padding-left: 1rem;
-    height: 3rem;
-    font-size: 1.1rem;
-    justify-content: space-between;
-}
-
-.box input {
-    flex: 1;
-    border: none;
-    outline: none;
-    font-size: 1.1rem;
-    background: transparent;
-}
-
-.box button {
-    color: white;
-    border: none;
-    outline: none;
-    cursor: pointer;
+.form label {
+    font-family: monospace;
     font-weight: 500;
-    text-align: center;
-    background: orange;
-    padding: .5rem 2rem;
-    border-radius: 4rem;
 }
 
-ul {
-    margin-top: 1rem;
-}
-.to-do ul li {
-    font-family: 'Poppins', sans-serif;
-    list-style-type: none;
-    font-size: 1.2rem;
-    padding: 1rem 3rem;
-    user-select: none;
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    align-items: center;
+.form input {
+    height: 20px;
+    font-family: monospace;
+    padding: 0 5px;
+    outline: none;
+    border: 1px solid #2a313c34;;
 }
 
-ul li::before {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%; 
-    background: url('/Assets/unchecked.png');
-    background-size: cover;
-    background-position: center;
-    top: 20px;
-    left: 8px;
+.form button {
+    height: 25px;
+    outline: none;
+    margin-top: 10px;
+    border: 1px solid #2a313c8d;
+    border-radius: 12px;
+    font-weight: 500;
 }
 
-li.checked{
-    color: #555;
-    text-decoration: line-through;
+.form button:active {
+    background: black;
+    color: white;
+    font-weight: 700;
 }
 
-li.checked::before {
-    background-image: url('/Assets/checked.png');
+.pending, .progress, .done {
+    border: 1px solid rgba(0, 0, 0, 0.122);
+    padding: 0px 10px;
 }
 
-ul li span {
-    position: absolute;
-    right: 0;
-    top: 15px;
-    width: 2rem;
-    height: 2rem;
-    font-size: 1.2rem;
-    line-height: 2rem;
-    text-align: center;
-    /* background: #edeef0; */
-    border-radius: 50%;
+.task {
+    max-width: 100%;
+    border: 2px solid #2a313c34;
+    background: #2a313c23;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    padding: 12px 10px;
+    cursor: move; /* Change cursor to indicate draggable */
 }
-ul li span:hover {
-    background: #edeef0;
+
+.task:active {
+    border: 2.9px solid #2a313cea;
+}
+
+@media screen and (max-width: 500px) {
+
+    .form {
+        max-width: 100%;
+        margin: 20px;
+    }
+}
+
+@media screen and (max-width: 1090px) {
+    body .container {
+        grid-template-columns: auto;
+    }
 }

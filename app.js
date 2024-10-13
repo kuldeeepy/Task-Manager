@@ -1,30 +1,63 @@
+const titleInput = document.getElementById("task1");
+const descInput = document.getElementById("task2");
+const button = document.getElementById("btn");
 
-let taskList = document.querySelector('ul');
-let task = document.querySelector('li');
-let input = document.querySelector('input');
+button.addEventListener("click", addTask);
 
 function addTask() {
-    if(input.value === '') {
-        alert('You must write something!!')
-    }
-    
-    else {
-        let li = document.createElement('li')
-        li.innerHTML = input.value;
-        taskList.appendChild(li)
+    let newTask = document.createElement('div');
+    newTask.classList.add("task");
+    newTask.draggable = true;
 
-        let span = document.createElement('span')
-        span.innerHTML = '\u00d7';
-        li.appendChild(span)
-    }
-    input.value = '';
+    let title = document.createElement('h2');
+    title.textContent = titleInput.value;
+
+    let desc = document.createElement('p');
+    desc.textContent = descInput.value;
+
+    newTask.append(title, desc);
+    document.querySelector(".pending").appendChild(newTask); // Add new task to pending
+
+    titleInput.value = "";
+    descInput.value = "";
+
+    // Add dragstart event to the new task
+    newTask.addEventListener("dragstart", dragStart);
 }
 
-taskList.addEventListener('click', (e)=> {
-    if(e.target. nodeName== 'LI') {
-        e.target.classList.toggle('checked')
-    }
-    else if(e.target.nodeName === 'SPAN') {
-        e.target.parentElement.remove();
-    }
-})
+function dragStart(event) {
+    event.dataTransfer.setData("text/plain", event.target.innerHTML);
+    event.dataTransfer.effectAllowed = "move";
+    event.dataTransfer.setData("text/plain", event.target.outerHTML); 
+    event.target.classList.add('dragging'); 
+}
+
+const droppableAreas = {
+    pending: document.querySelector(".pending"),
+    progress: document.querySelector(".progress"),
+    done: document.querySelector(".done")
+};
+
+Object.values(droppableAreas).forEach(area => {
+    area.addEventListener("dragover", (event) => {
+        event.preventDefault();
+    });
+
+    area.addEventListener("drop", (event) => {
+        event.preventDefault();
+        
+        const draggedData = event.dataTransfer.getData("text/plain");
+        const draggedTask = document.querySelector('.dragging'); 
+
+        if (draggedTask) {
+            area.appendChild(draggedTask);
+            draggedTask.classList.remove('dragging'); 
+        }
+    });
+});
+
+// Attach dragstart event to existing tasks
+const tasks = document.querySelectorAll(".task");
+tasks.forEach(task => {
+    task.addEventListener("dragstart", dragStart);
+});
