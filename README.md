@@ -8,6 +8,16 @@ It's a very basic task-management web application and it's few of the features a
     ~ Adding tasks
     ~ Updating status
 
+## Preview
+
+~ Desktop View
+
+![App Screenshot](https://snipboard.io/AL2GQC.jpg)
+
+~ Mobile View
+
+![App Screenshot](https://snipboard.io/PdIjNf.jpg)
+
 ## Directory Structure
 
 ```
